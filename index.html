@@ -22,37 +22,27 @@
       });
 
       const {renderer, scene, camera} = mindarThree;
-        //image 1
-	 document.getElementById("Im1").style.visibility = "visible";   
+        //image 1    
+      const anchor0 = mindarThree.addAnchor(0);
+      const texture0 = new THREE.TextureLoader().load("assets/jpg/im1.jpg");
+      const geometry0 = new THREE.PlaneGeometry(1, 0.55);
+      const material0 = new THREE.MeshBasicMaterial({map: texture0});
+     const plane0 = new THREE.Mesh( geometry0, material0);
+      anchor0.group.add(plane0);
 	    
-nextButton.addEventListener("click", () => {	    
-	 function next() {
-document.getElementById("Im1").style.visibility = "hidden";
-document.getElementById("Im2").style.visibility = "visible"; 
-}
-} 
-   
-	    
-      //const anchor0 = mindarThree.addAnchor(0);
-     // const texture0 = new THREE.TextureLoader().load("assets/jpg/im1.jpg");
-     // const geometry0 = new THREE.PlaneGeometry(1, 0.55);
-     // const material0 = new THREE.MeshBasicMaterial({map: texture0});
-     // const plane0 = new THREE.Mesh( geometry0, material0);
-     // anchor0.group.add(plane0);
-	    
-	//const nextButton = document.querySelector("#nextButton");
-     // nextButton.addEventListener("click", () => {
+	const nextButton = document.querySelector("#nextButton");
+      nextButton.addEventListener("click", () => {
 	      
-    //  const texture0 = new THREE.TextureLoader().load("./assets/jpg/img2.jpg");
-    //  const geometry0 = new THREE.PlaneGeometry(1, 0.55);
-     // const material0 = new THREE.MeshBasicMaterial({map: texture0});
-     // const plane0 = new THREE.Mesh( geometry0, material0);
-     // anchor0.group.add(plane0);
-  //   });
-  //    privButton.addEventListener("click", () => {
-//	mindarThree.stop();
-//	mindarThree.renderer.setAnimationLoop(null);
-  //    });
+     const texture0 = new THREE.TextureLoader().load("./assets/jpg/img2.jpg");
+     const geometry0 = new THREE.PlaneGeometry(1, 0.55);
+     const material0 = new THREE.MeshBasicMaterial({map: texture0});
+     const plane0 = new THREE.Mesh( geometry0, material0);
+      anchor0.group.add(plane0);
+     });
+      privButton.addEventListener("click", () => {
+	mindarThree.stop();
+	mindarThree.renderer.setAnimationLoop(null);
+      });
 	    
 	    
       //image 2
@@ -116,8 +106,7 @@ document.getElementById("Im2").style.visibility = "visible";
 </div>
     <div id="container">
     </div>
-<img id="myImg" src="assets/jpg/im1.jpg" width="100" height="132">
-<img id="myImg" src="assets/jpg/im2.jpg" width="100" height="132">
+
 	  
   </body>
 </html>
