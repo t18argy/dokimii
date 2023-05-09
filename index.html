@@ -32,7 +32,6 @@
 	    
 	const nextButton = document.querySelector("#nextButton");
       nextButton.addEventListener("click", () => {
-	const anchor0 = mindarThree.addAnchor(0);
       const texture0 = new THREE.TextureLoader().load("./assets/jpg/img2.jpg");
       const geometry0 = new THREE.PlaneGeometry(1, 0.55);
       const material0 = new THREE.MeshBasicMaterial({map: texture0});
