@@ -29,7 +29,14 @@
       const plane0 = new THREE.Mesh( geometry0, material0);
       anchor0.group.add(plane0);
 	    
-	    
+      const next = document.querySelector("#next");
+      next.addEventListener("click", () => {
+	start();
+      });
+      stopButton.addEventListener("click", () => {
+	mindarThree.stop();
+	mindarThree.renderer.setAnimationLoop(null);
+      });    
 	    
 	    
 	    
@@ -61,6 +68,9 @@
 h1 {text-align: center;}
 p {text-align: center;}
       body {
+	      
+	background-image: url('assets/jpg/bg.jpg');      
+	      
 	margin: 0;
       }
       #container {
@@ -90,9 +100,8 @@ p {text-align: center;}
     </style>
  </head>
   <body>
-
-    <h1>Welcome to the Campus Navigation System</h1>
-<p style="background-image: url('assets/jpg/bg.jpg');">	  
+    
+    <h1>Welcome to the Campus Navigation System</h1> 
     Pick the building you want</p>
 	  
     <div id="control">
