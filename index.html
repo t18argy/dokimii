@@ -12,6 +12,7 @@
 	}
 	</script>
 	<script type="module">
+		
 		import * as THREE from 'three';
 		import { MindARThree } from 'mindar-image-three';
 		//initiate AR object
@@ -21,8 +22,11 @@
 		});
 		const {renderer, scene, camera} = mindarThree;
 
-		//κτηριο 1
-
+		var render = function () { 
+			requestAnimationFrame( render );
+			renderer.render(scene, camera);
+		};
+		
 		// instantiate a texture loader
 		var loader = new THREE.TextureLoader();
 		//allow cross origin loading
@@ -40,22 +44,37 @@
 			'assets/jpg/im9.jpg',
 		];
 		var textureToShow = 0;
-
-		const anchor0 = mindarThree.addAnchor(0);
-		var texture0 = loader.load(arr[textureToShow]);
-		var geometry0 = new THREE.PlaneGeometry(1, 1.7);
-		var material0 = new THREE.MeshBasicMaterial({map:texture});
-		var plane0 = new THREE.Mesh(geometry0, material0);
-		anchor0.group.add(plane0);
-
-		//Then load the texture
-		//loader.load(arr[textureToShow], function(tex) {
-		//Once the texture has loaded
-		//Asign it to the material
-		//material.map = tex;
-		//Update the next texture to show
-		//textureToShow++;
-
+		
+		const anchor = mindarThree.addAnchor(0);
+		
+		// Load the first texture
+		var texture = loadTexture('assets/jpg/im1.jpg');
+		// Instantiate the material we will be using
+		var material = new THREE.MeshBasicMaterial();
+		// Instantiate a geometry to use
+		var geometry = new THREE.PlaneGeometry(1, 1.7);
+		// Instatiate the mesh with the geometry and material
+		
+		anchor.group.add(plane);
+		
+		// Then load the texture
+		loader.load(arr[textureToShow], function(tex) {
+			// Once the texture has loaded
+			// Asign it to the material
+			material.map = tex;
+			// Update the next texture to show
+			textureToShow++;
+			// Add the mesh into the scene
+//			scene.add( plane );
+		});
+		
+//		const anchor0 = mindarThree.addAnchor(0);
+//		var texture0 = loader.load(arr[textureToShow]);
+//		var geometry0 = new THREE.PlaneGeometry(1, 1.7);
+//		var material0 = new THREE.MeshBasicMaterial({map:texture});
+//		var plane0 = new THREE.Mesh(geometry0, material0);
+//		anchor0.group.add(plane0);
+		
 		//function nexttext(){
 		//document.getElementById("hahaha").innerHTML = "I have changed!";
 		//textureToShow++;
@@ -101,15 +120,6 @@
 		//textureToShow--;
 		//const texture0 = new THREE.TextureLoader().load(arr[textureToShow]);
 		//});  
-
-		//image 2
-		//const anchor1 = mindarThree.addAnchor(1);
-		//const texture1 = new THREE.TextureLoader().load("./assets/images/img2.jpg");
-		//const geometry1 = new THREE.PlaneGeometry(1, 0.55);
-		//const material1 = new THREE.MeshBasicMaterial({map: texture1});
-		//const plane1 = new THREE.Mesh( geometry1, material1);
-		//anchor1.group.add(plane1);
-		//more images?
 
 		const start = async() => {
 			await mindarThree.start();
@@ -176,7 +186,7 @@
 	<div id="container"> </div>
 
 	<div id="next">
-		<button onclick="nexttext()" id="nextButton">Next</button>
+		<button id="nextButton">Next</button>
 	</div>
 
 	<div id="back">
