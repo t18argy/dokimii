@@ -22,73 +22,67 @@
 		});
 		const {renderer, scene, camera} = mindarThree;
 		
+		var arr = [
+			'assets/jpg/im1.jpg',
+			'assets/jpg/im2.jpg',
+			'assets/jpg/im3.jpg',
+			'assets/jpg/im4.jpg',
+			'assets/jpg/im6.jpg',
+			'assets/jpg/im7.jpg',
+			'assets/jpg/im8.jpg',
+			'assets/jpg/im9.jpg',
+		];
+		var textureToShow = 0;
+		
+		var loader = new THREE.TextureLoader();
+		loader.crossOrigin = '';
+		
 		//image 1
      		const anchor0 = mindarThree.addAnchor(0);
-      		const texture0 = new THREE.TextureLoader().load("./assets/images/img1.jpg");
-      		const geometry0 = new THREE.PlaneGeometry(1, 0.55);
-      		const material0 = new THREE.MeshBasicMaterial({map: texture0});
-      		const plane0 = new THREE.Mesh( geometry0, material0);
+      		var texture0 = new THREE.TextureLoader().load(arr[textureToShow]);
+      		var geometry0 = new THREE.PlaneGeometry(1, 1.7);
+      		var material0 = new THREE.MeshBasicMaterial({map: texture0});
+      		var plane0 = new THREE.Mesh(geometry0, material0);
       		anchor0.group.add(plane0);
 
 //		var render = function () { 
 //			requestAnimationFrame( render );
 //			renderer.render(scene, camera);
 //		};
-//
-//		var loader = new THREE.TextureLoader();
-//		loader.crossOrigin = '';
 //		
-//		var arr = [
-//			'assets/jpg/im1.jpg',
-//			'assets/jpg/im2.jpg',
-//			'assets/jpg/im3.jpg',
-//			'assets/jpg/im4.jpg',
-//			'assets/jpg/im6.jpg',
-//			'assets/jpg/im7.jpg',
-//			'assets/jpg/im8.jpg',
-//			'assets/jpg/im9.jpg',
-//		];
-//		var textureToShow = 0;
-//		
-//		const anchor = mindarThree.addAnchor(0);
-//		
-//		// Load the first texture
-//		var texture = loadTexture('assets/jpg/im1.jpg');
-//		// Instantiate the material we will be using
-//		var material = new THREE.MeshBasicMaterial();
-//		// Instantiate a geometry to use
-//		var geometry = new THREE.PlaneGeometry(1, 1.7);
-//		// Instatiate the mesh with the geometry and material
-//		
-//		anchor.group.add(plane);
+//		const anchor0 = mindarThree.addAnchor(0);
+//		var texture0 = loadTexture(arr[textureToShow]);
+//		var material0 = new THREE.MeshBasicMaterial();
+//		var geometry0 = new THREE.PlaneGeometry(1, 1.7);
+//		anchor.group.add(plane0);
 //		
 //		loader.load(arr[textureToShow], function(tex) {
 //			material.map = tex;
 //			textureToShow++;
 //		});
-//
-//		const nextButton = document.querySelector("#nextButton");
-//		document.getElementById("hahaha").innerHTML = "I have changed????????????????????????";
-//		nextButton.addEventListener("click", function() {
-//			loader.load(arr[textureToShow], function(tex) {
-//				material0.map = tex;
-//				textureToShow++;
-//				if(textureToShow > arr.length-1) {
-//					textureToShow = 0;
-//				}
-//			});
-//		});
-//
-//		const backButton = document.querySelector("#backButton");
-//		backButton.addEventListener("click", () => {
-//			document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!";
-//			textureToShow++;
-//			if (textureToShow>=arr.length){
-//				textureToShow=0;
-//			}
-//			texture0 = loader.load(arr[textureToShow]);
-//			THREE.MeshBasicMaterial({map: texture0});
-//		});
+
+		const nextButton = document.querySelector("#nextButton");
+		document.getElementById("hahaha").innerHTML = "I have changed????????????????????????";
+		nextButton.addEventListener("click", function() {
+			loader.load(arr[textureToShow], function(tex) {
+				material0.map = tex;
+				textureToShow++;
+				if(textureToShow > arr.length-1) {
+					textureToShow = 0;
+				}
+			});
+		});
+
+		const backButton = document.querySelector("#backButton");
+		backButton.addEventListener("click", () => {
+			document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!";
+			textureToShow++;
+			if (textureToShow>=arr.length){
+				textureToShow=0;
+			}
+			texture0 = loader.load(arr[textureToShow]);
+			THREE.MeshBasicMaterial({map: texture0});
+		});
 		
 		const start = async() => {
 			await mindarThree.start();
