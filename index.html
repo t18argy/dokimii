@@ -64,9 +64,13 @@ function nexttext(){
 	    
 const backButton = document.querySelector("#backButton");
 	backButton.addEventListener("click", () => {
-	document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!"; 
-//	textureToShow--;
-//	const texture0 = new THREE.TextureLoader().load(arr[textureToShow]);
+		document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!";
+		textureToShow++;
+		if (textureToShow>=arr.length){
+			textureToShow=0;
+		}
+		texture0 = loader.load(arr[textureToShow]);
+		THREE.MeshBasicMaterial({map: texture0});
 	});	    
 	    
      // const nextButton = document.querySelector("#nextButton");
