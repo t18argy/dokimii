@@ -46,7 +46,8 @@ var textureToShow = 0;
       const material0 = new THREE.MeshBasicMaterial({map: texture0});
       const plane0 = new THREE.Mesh( geometry0, material0);
       anchor0.group.add(plane0);
-	    
+	      textureToShow++;
+	 });    
     //  const nextButton = document.querySelector("#nextButton");
      // nextButton.addEventListener("click", () => {
 	//      textureToShow++;
@@ -58,7 +59,7 @@ var textureToShow = 0;
       
 	// Click interaction
 const nextButton = document.querySelector("#nextButton");
-//var canvas = document.getElementsByTagName("canvas")[0];
+var canvas = document.getElementsByTagName("canvas")[0];
 
 nextButton.addEventListener("click", function() {
    
