@@ -31,7 +31,11 @@
       const nextButton = document.querySelector("#nextButton");
       nextButton.addEventListener("click", () => {
 	const texture0 = new THREE.TextureLoader().load("assets/jpg/im2.jpg");
-      });    
+      });   
+      const backButton = document.querySelector("#backButton");
+      backButton.addEventListener("click", () => {
+	const texture0 = new THREE.TextureLoader().load("assets/jpg/im3.jpg");
+      });
       
 	    
 	    
@@ -81,10 +85,10 @@ p {text-align: center;}
       }
 	    #next {
 	position: fixed;
-	top: 700;
-	left: 100;
+	top: 600;
+	left: 500;
 	z-index: 2;
-		    
+	    }	    
 	   #back {
 	position: fixed;
 	top: 100;
