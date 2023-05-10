@@ -45,12 +45,22 @@ var textureToShow = 0;
    
 	    
       const anchor0 = mindarThree.addAnchor(0);
-      var texture0 = loader.load(arr[textureToShow]);
-      const geometry0 = new THREE.PlaneGeometry(1, 1.7);
-      const material0 = new THREE.MeshBasicMaterial();
-      const plane0 = new THREE.Mesh( geometry0, material0);
-      anchor0.group.add(plane0);
-	       
+    //  var texture0 = loader.load(arr[textureToShow]);
+      var geometry0 = new THREE.PlaneGeometry(1, 1.7);
+      var material0 = new THREE.MeshBasicMaterial();
+      var plane0 = new THREE.Mesh(geometry0, material0);
+  
+	    
+// Then load the texture
+loader.load(arr[textureToShow], function(tex) {
+ // Once the texture has loaded
+ // Asign it to the material
+ material.map = tex;
+ // Update the next texture to show
+ textureToShow++;
+
+    anchor0.group.add(plane0);
+	    
 
 // function nexttext(){
 //	document.getElementById("hahaha").innerHTML = "I have changed!";  
@@ -63,6 +73,7 @@ var textureToShow = 0;
 // }
 	    
 const nextButton = document.querySelector("#nextButton");
+	document.getElementById("hahaha").innerHTML = "I have changed????????????????????????";
 	nextButton.addEventListener("click", function() {
 		loader.load(arr[textureToShow], function(tex) {
 		material0.map = tex;
