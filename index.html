@@ -47,19 +47,19 @@ var textureToShow = 0;
       const anchor0 = mindarThree.addAnchor(0);
       var texture0 = loader.load(arr[textureToShow]);
       var geometry0 = new THREE.PlaneGeometry(1, 1.7);
-      var material0 = new THREE.MeshBasicMaterial();
+      var material0 = new THREE.MeshBasicMaterial({map:texture});
       var plane0 = new THREE.Mesh(geometry0, material0);
-  
+       anchor0.group.add(plane0);
 	    
 // Then load the texture
-loader.load(arr[textureToShow], function(tex) {
+//loader.load(arr[textureToShow], function(tex) {
  // Once the texture has loaded
  // Asign it to the material
- material.map = tex;
+// material.map = tex;
  // Update the next texture to show
- textureToShow++;
+// textureToShow++;
 
-    anchor0.group.add(plane0);
+    
 	    
 
 // function nexttext(){
