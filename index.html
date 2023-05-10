@@ -47,20 +47,32 @@ var textureToShow = 0;
       const anchor0 = mindarThree.addAnchor(0);
       var texture0 = loader.load(arr[textureToShow]);
       const geometry0 = new THREE.PlaneGeometry(1, 1.7);
-      const material0 = new THREE.MeshBasicMaterial({map: texture0});
+      const material0 = new THREE.MeshBasicMaterial();
       const plane0 = new THREE.Mesh( geometry0, material0);
       anchor0.group.add(plane0);
 	       
 
-function nexttext(){
-	document.getElementById("hahaha").innerHTML = "I have changed!";  
+// function nexttext(){
+//	document.getElementById("hahaha").innerHTML = "I have changed!";  
 //	textureToShow++;
 //	if (textureToShow>=arr.length){
 //		textureToShow=0;
 //	}
 //	texture0 = loader.load(arr[textureToShow]);
 //	THREE.MeshBasicMaterial({map: texture0});
-}
+// }
+	    
+const nextButton = document.querySelector("#nextButton");
+	nextButton.addEventListener("click", function() {
+		loader.load(arr[textureToShow], function(tex) {
+		material0.map = tex;
+		textureToShow++;
+		if(textureToShow > arr.length-1) {
+			textureToShow = 0;
+  		}
+ 	});
+});
+	        
 	    
 const backButton = document.querySelector("#backButton");
 	backButton.addEventListener("click", () => {
