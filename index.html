@@ -50,12 +50,12 @@ var textureToShow = 0;
 
 // Instantiate the material we will be using
 const anchor0 = mindarThree.addAnchor(0);
-var material = new THREE.MeshBasicMaterial();
+const material0 = new THREE.MeshBasicMaterial();
 // Instantiate a geometry to use
-var geometry = new THREE.BoxGeometry( 1, 1.7);
+const geometry0 = new THREE.PlaneGeometry( 1, 1.7);
 // Instatiate the mesh with the geometry and material
-var cube = new THREE.Mesh( geometry, material );
-cube.position.y = 0.5;
+const plane0 = new THREE.Mesh( geometry, material );
+ 
 
 // Then load the texture
 loader.load(arr[textureToShow], function(tex) {
@@ -75,18 +75,18 @@ loader.load(arr[textureToShow], function(tex) {
 	      
 	// });    
 	    
-      const nextButton = document.querySelector("#nextButton");
-      nextButton.addEventListener("click", () => {
-	      textureToShow++;
-	      if(textureToShow > arr.length-1) {
-		  textureToShow = 0;
-      const texture0 = new THREE.TextureLoader().load(arr[textureToShow]);  
-      }
-     const backButton = document.querySelector("#backButton");
-      backButton.addEventListener("click", () => {
-	textureToShow--;
-    const texture0 = new THREE.TextureLoader().load(arr[textureToShow]);
-     });
+     // const nextButton = document.querySelector("#nextButton");
+     // nextButton.addEventListener("click", () => {
+	//      textureToShow++;
+	//      if(textureToShow > arr.length-1) {
+//		  textureToShow = 0;
+   //   const texture0 = new THREE.TextureLoader().load(arr[textureToShow]);  
+   //   }
+   //  const backButton = document.querySelector("#backButton");
+  //    backButton.addEventListener("click", () => {
+//	textureToShow--;
+  // const texture0 = new THREE.TextureLoader().load(arr[textureToShow]);
+  //   });
       
 	// Click interaction
 //const nextButton = document.querySelector("#nextButton");
