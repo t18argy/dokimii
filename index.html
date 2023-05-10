@@ -32,11 +32,11 @@
       const nextButton = document.querySelector("#nextButton");
       nextButton.addEventListener("click", () => {
 	      
-	const texture1 = new THREE.TextureLoader().load("assets/jpg/im2.jpg");
-	const geometry1 = new THREE.PlaneGeometry(1, 1.7);
-      const material1 = new THREE.MeshBasicMaterial({map: texture1});
-      const plane1 = new THREE.Mesh( geometry1, material1);
-      anchor1.group.add(plane1);      
+	const texture0 = new THREE.TextureLoader().load("assets/jpg/im2.jpg");
+	const geometry0 = new THREE.PlaneGeometry(1, 1.7);
+      const material0 = new THREE.MeshBasicMaterial({map: texture0});
+      const plane0 = new THREE.Mesh( geometry0, material0);
+      anchor1.group.add(plane0);      
       });   
 	    
       const backButton = document.querySelector("#backButton");
