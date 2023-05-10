@@ -25,14 +25,39 @@
 	    
         //κτηριο 1
 	    
+ // instantiate a texture loader
+var loader = new THREE.TextureLoader();
+//allow cross origin loading
+loader.crossOrigin = '';
+	    
+// The textures to use
+var arr = [
+ 'assets/jpg/im1.jpg',
+ 'assets/jpg/im2.jpg',
+ 'assets/jpg/im3.jpg',
+ 'assets/jpg/im4.jpg',
+ 'assets/jpg/im6.jpg',
+ 'assets/jpg/im7.jpg',
+ 'assets/jpg/im8.jpg',
+ 'assets/jpg/im9.jpg',
+];
+var textureToShow = 0;
+   
+	    
       const anchor0 = mindarThree.addAnchor(0);
-      const texture0 = loader.load(arr[textureToShow]);
+      var texture0 = loader.load(arr[textureToShow]);
       const geometry0 = new THREE.PlaneGeometry(1, 1.7);
       const material0 = new THREE.MeshBasicMaterial({map: texture0});
       const plane0 = new THREE.Mesh( geometry0, material0);
       anchor0.group.add(plane0);
 	       
-	    
+
+function nexttext(){
+	textureToShow++;
+	if (textureToShow>=arr.length){
+		textureToShow=0;
+	}
+}
      // const nextButton = document.querySelector("#nextButton");
      // nextButton.addEventListener("click", () => {
 	//      textureToShow++;
@@ -120,7 +145,7 @@ p {text-align: center;}
     </div>
 	  
 <div id="next">
-<button id="nextButton">Next</button>
+<button onclick="nexttext() id="nextButton">Next</button>
 </div>
 	  
 <div id="back">
