@@ -31,9 +31,14 @@
 	    
       const next = document.querySelector("#next");
       next.addEventListener("click", () => {
-	start();
+      const anchor1 = mindarThree.addAnchor(1);
+      const texture1 = new THREE.TextureLoader().load("assets/jpg/im2.jpg");
+      const geometry1 = new THREE.PlaneGeometry(1, 1.7);
+      const material1 = new THREE.MeshBasicMaterial({map: texture1});
+      const plane1 = new THREE.Mesh( geometry1, material1);
+      anchor0.group.add(plane1);
       });
-      stopButton.addEventListener("click", () => {
+      back.addEventListener("click", () => {
 	mindarThree.stop();
 	mindarThree.renderer.setAnimationLoop(null);
       });    
@@ -41,12 +46,12 @@
 	    
 	    
       //image 2
-      const anchor1 = mindarThree.addAnchor(1);
-      const texture1 = new THREE.TextureLoader().load("./assets/images/img2.jpg");
-      const geometry1 = new THREE.PlaneGeometry(1, 0.55);
-      const material1 = new THREE.MeshBasicMaterial({map: texture1});
-      const plane1 = new THREE.Mesh( geometry1, material1);
-      anchor1.group.add(plane1);
+     // const anchor1 = mindarThree.addAnchor(1);
+     // const texture1 = new THREE.TextureLoader().load("./assets/images/img2.jpg");
+     // const geometry1 = new THREE.PlaneGeometry(1, 0.55);
+    //  const material1 = new THREE.MeshBasicMaterial({map: texture1});
+    //  const plane1 = new THREE.Mesh( geometry1, material1);
+   //   anchor1.group.add(plane1);
       //more images?
       
       const start = async() => {
@@ -88,12 +93,12 @@ p {text-align: center;}
 	    #next {
 	position: fixed;
 	top: 500;
-	left: 20;
+	left: 100;
 	z-index: 2;
 		    
 	   #back {
 	position: fixed;
-	top: 500;
+	top: 200;
 	left: 0;
 	z-index: 2;
       }
