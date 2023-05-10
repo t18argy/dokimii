@@ -29,19 +29,7 @@
       const plane0 = new THREE.Mesh( geometry0, material0);
       anchor0.group.add(plane0);
 	    
-      const next = document.querySelector("#next");
-      next.addEventListener("click", () => {
-      const anchor1 = mindarThree.addAnchor(1);
-      const texture1 = new THREE.TextureLoader().load("assets/jpg/im2.jpg");
-      const geometry1 = new THREE.PlaneGeometry(1, 1.7);
-      const material1 = new THREE.MeshBasicMaterial({map: texture1});
-      const plane1 = new THREE.Mesh( geometry1, material1);
-      anchor0.group.add(plane1);
-      });
-      back.addEventListener("click", () => {
-	mindarThree.stop();
-	mindarThree.renderer.setAnimationLoop(null);
-      });    
+      
 	    
 	    
 	    
