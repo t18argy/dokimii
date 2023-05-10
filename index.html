@@ -53,6 +53,7 @@ var textureToShow = 0;
 	       
 
 function nexttext(){
+	document.getElementById("hahaha").innerHTML = "I have changed!";  
 	textureToShow++;
 	if (textureToShow>=arr.length){
 		textureToShow=0;
@@ -135,7 +136,7 @@ p {text-align: center;}
  </head>
   <body>
     
-    <h1>Welc to the Campus Navigation System</h1> 
+    <h1 id="hahaha">Welc to the Campus Navigation System</h1> 
    <p> Scan the building you want</p>
 	  
     <div id="control">
