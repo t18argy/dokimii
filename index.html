@@ -48,27 +48,29 @@ var textureToShow = 0;
       anchor0.group.add(plane0);
 	      textureToShow++;
 	 });    
-    //  const nextButton = document.querySelector("#nextButton");
-     // nextButton.addEventListener("click", () => {
-	//      textureToShow++;
-      //}
-      //const backButton = document.querySelector("#backButton");
-      //backButton.addEventListener("click", () => {
-//	textureToShow++;
-  //    }
+      const nextButton = document.querySelector("#nextButton");
+      nextButton.addEventListener("click", () => {
+	      textureToShow++;
+	      if(textureToShow > arr.length-1) {
+		  textureToShow = 0;
+      }
+     const backButton = document.querySelector("#backButton");
+      backButton.addEventListener("click", () => {
+	textureToShow--;
+     }
       
 	// Click interaction
-const nextButton = document.querySelector("#nextButton");
-var canvas = document.getElementsByTagName("canvas")[0];
+//const nextButton = document.querySelector("#nextButton");
+//var canvas = document.getElementsByTagName("canvas")[0];
 
-nextButton.addEventListener("click", function() {
+//nextButton.addEventListener("click", function() {
    
-new THREE.TextureLoader().load(arr[textureToShow], function(tex) {
+//new THREE.TextureLoader().load(arr[textureToShow], function(tex) {
   // Update the next texture to show
-  textureToShow++;
+//  textureToShow++;
   // Have we got to the end of the textures array
-  if(textureToShow > arr.length-1) {
-   textureToShow = 0;
+//  if(textureToShow > arr.length-1) {
+//   textureToShow = 0;
   }
  }); 
  
