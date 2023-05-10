@@ -12,17 +12,8 @@
     } 
     </script>
     <script type="module">
-      import * as THREE from 'three';
-      import { MindARThree } from 'mindar-image-three';
-      //initiate AR object
-      const mindarThree = new MindARThree({
-	container: document.querySelector("#container"),
-	imageTargetSrc: "./assets/markers/musicband.mind"
-      });
-
-      const {renderer, scene, camera} = mindarThree;
 	    
-	// The textures to use
+	 // The textures to use
 var arr = [
  'assets/jpg/im1.jpg',
  'assets/jpg/im2.jpg',
@@ -35,13 +26,22 @@ var arr = [
  'assets/jpg/im9.jpg',
  'assets/jpg/im10.jpg'
 ];    
-var textureToShow = 0;
+var textureToShow = 0;   
+	    
+      import * as THREE from 'three';
+      import { MindARThree } from 'mindar-image-three';
+      //initiate AR object
+      const mindarThree = new MindARThree({
+	container: document.querySelector("#container"),
+	imageTargetSrc: "./assets/markers/musicband.mind"
+      });
 	    
 	    
+const {renderer, scene, camera} = mindarThree; 
 	    
         //image 1
       const anchor0 = mindarThree.addAnchor(0);
-      const texture0 = new THREE.TextureLoader().load(arr[textureToShow], function(tex) {
+      const texture0 = new THREE.TextureLoader().load(arr[textureToShow]);
       const geometry0 = new THREE.PlaneGeometry(1, 1.7);
       const material0 = new THREE.MeshBasicMaterial({map: texture0});
       const plane0 = new THREE.Mesh( geometry0, material0);
@@ -53,6 +53,7 @@ var textureToShow = 0;
 	      textureToShow++;
 	      if(textureToShow > arr.length-1) {
 		  textureToShow = 0;
+		      
       }
      const backButton = document.querySelector("#backButton");
       backButton.addEventListener("click", () => {
