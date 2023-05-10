@@ -57,6 +57,8 @@ function nexttext(){
 	if (textureToShow>=arr.length){
 		textureToShow=0;
 	}
+	texture0 = loader.load(arr[textureToShow]);
+	THREE.MeshBasicMaterial({map: texture0});
 }
      // const nextButton = document.querySelector("#nextButton");
      // nextButton.addEventListener("click", () => {
