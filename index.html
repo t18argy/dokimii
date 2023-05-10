@@ -28,7 +28,10 @@
       const material0 = new THREE.MeshBasicMaterial({map: texture0});
       const plane0 = new THREE.Mesh( geometry0, material0);
       anchor0.group.add(plane0);
-	    
+      const nextButton = document.querySelector("#nextButton");
+      nextButton.addEventListener("click", () => {
+	const texture0 = new THREE.TextureLoader().load("assets/jpg/im2.jpg");
+      });    
       
 	    
 	    
@@ -104,11 +107,11 @@ p {text-align: center;}
     </div>
 	  
 <div id="next">
-<button id="next">Next</button>
+<button id="nextButton">Next</button>
 </div>
 	  
 <div id="back">
-<button id="back">back</button>
+<button id="backButton">back</button>
 </div>
 	  
   </body>
