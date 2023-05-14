@@ -70,19 +70,20 @@
 //			loader.load(arr[textureToShow], function(tex) {
 //				material0.map = tex;
 //			});
+			material0.map = arr[textureToShow];
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
 
-		const backButton = document.querySelector("#backButton");
-		backButton.addEventListener("click", () => {
-			document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!";
+//		const backButton = document.querySelector("#backButton");
+//		backButton.addEventListener("click", () => {
+//			document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!";
 //			textureToShow++;
 //			if (textureToShow>=arr.length){
 //				textureToShow=0;
 //			}
 //			texture0 = loader.load(arr[textureToShow]);
 //			THREE.MeshBasicMaterial({map: texture0});
-		});
+//		});
 		
 		const start = async() => {
 			await mindarThree.start();
@@ -140,7 +141,7 @@
 <body>
 	<h1 id="hahaha">Welc to the Campus Navigation System</h1> 
 	<p> Scan the building you want</p>
-	<p> Pic #</p> <span id="picno"> 000 </span>
+	<p> Pic <span id="picno">#</span></p> 
 
 	<div id="control">
 		<button id="startButton">Start</button>
