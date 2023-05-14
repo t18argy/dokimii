@@ -13,6 +13,8 @@
 	</script>
 	<script type="module">
 		
+		var scene = new THREE.Scene();
+		
 		import * as THREE from 'three';
 		import { MindARThree } from 'mindar-image-three';
 		//initiate AR object
@@ -45,11 +47,11 @@
       		var plane0 = new THREE.Mesh(geometry0, material0);
       		anchor0.group.add(plane0);
 
-//		var render = function () { 
-//			requestAnimationFrame( render );
-//			renderer.render(scene, camera);
-//		};
-//		
+		var render = function () { 
+			requestAnimationFrame( render );
+			renderer.render(scene, camera);
+		};
+		
 //		const anchor0 = mindarThree.addAnchor(0);
 //		var texture0 = loadTexture(arr[textureToShow]);
 //		var material0 = new THREE.MeshBasicMaterial();
@@ -61,31 +63,19 @@
 //			textureToShow++;
 //		});
 
-		const nextButton = document.querySelector("#nextButton");
+		var nextButton = document.querySelector("#nextButton");
 		nextButton.addEventListener("click", function() {
-			textureToShow++;
-			if(textureToShow > arr.length-1) {
-				textureToShow = 0;
-			}
-//			loader.load(arr[textureToShow], function(tex) {
-//				material0.map = tex;
-//			});
-			texture0 = THREE.TextureLoader().load(arr[textureToShow]);
+			loader.load(arr[textureToShow], function(tex) {
+				material0.map = tex;
+				textureToShow++;
+				if(textureToShow > arr.length-1) {
+					textureToShow = 0;
+				}
+			})
 			material0.map = texture0;
 			plane0(geometry0, material0);
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
-
-//		const backButton = document.querySelector("#backButton");
-//		backButton.addEventListener("click", () => {
-//			document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!";
-//			textureToShow++;
-//			if (textureToShow>=arr.length){
-//				textureToShow=0;
-//			}
-//			texture0 = loader.load(arr[textureToShow]);
-//			THREE.MeshBasicMaterial({map: texture0});
-//		});
 		
 		const start = async() => {
 			await mindarThree.start();
@@ -101,6 +91,8 @@
 			mindarThree.stop();
 			mindarThree.renderer.setAnimationLoop(null);
 		});
+		
+		render();
 	</script>
 	<style>
 		h1 {text-align: center;}
