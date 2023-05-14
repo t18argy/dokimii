@@ -76,12 +76,12 @@
 		const backButton = document.querySelector("#backButton");
 		backButton.addEventListener("click", () => {
 			document.getElementById("hahaha").innerHTML = "I have changed!!!!!!!!!!!";
-			textureToShow++;
-			if (textureToShow>=arr.length){
-				textureToShow=0;
-			}
-			texture0 = loader.load(arr[textureToShow]);
-			THREE.MeshBasicMaterial({map: texture0});
+//			textureToShow++;
+//			if (textureToShow>=arr.length){
+//				textureToShow=0;
+//			}
+//			texture0 = loader.load(arr[textureToShow]);
+//			THREE.MeshBasicMaterial({map: texture0});
 		});
 		
 		const start = async() => {
@@ -140,7 +140,7 @@
 <body>
 	<h1 id="hahaha">Welc to the Campus Navigation System</h1> 
 	<p> Scan the building you want</p>
-	<p> Pic #</p> <span id="picno">-</span>
+	<p> Pic #</p> <span id="picno"> 000 </span>
 
 	<div id="control">
 		<button id="startButton">Start</button>
