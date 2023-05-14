@@ -48,11 +48,11 @@
 		var nextButton = document.querySelector("#nextButton");
 		nextButton.addEventListener("click", function() {
 			loader.load(arr[textureToShow], function(tex) {
-				material0.map = tex;
 				textureToShow++;
 				if(textureToShow > arr.length-1) {
 					textureToShow = 0;
 				}
+				material0.map = tex;
 			})
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
@@ -84,8 +84,6 @@
 			mindarThree.renderer.setAnimationLoop(null);
 		});
 		
-	</script>
-	//		render();
 	</script>
 	<style>
 		h1 {text-align: center;}
