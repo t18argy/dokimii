@@ -61,16 +61,6 @@
 //			textureToShow++;
 //		});
 
-//		function nextFunction() {
-//			loader.load(arr[textureToShow], function(tex) {
-//				material0.map = tex;
-//				textureToShow++;
-//				if(textureToShow > arr.length-1) {
-//					textureToShow = 0;
-//				}
-//			}
-//		}
-			
 		var nextButton = document.querySelector("#nextButton");
 		nextButton.addEventListener("click", function() {
 			loader.load(arr[textureToShow], function(tex) {
@@ -80,18 +70,6 @@
 					textureToShow = 0;
 				}
 			})
-			document.getElementById("picno").innerHTML = textureToShow;
-		});
-		
-//		var backButton = document.querySelector("#backButton");
-//		nextButton.addEventListener("click", function() {
-//			loader.load(arr[textureToShow], function(tex) {
-//				material0.map = tex;
-//				textureToShow--;
-//				if(textureToShow < 0) {
-//					textureToShow = arr.length-1;
-//				}
-//			})
 //			plane0(geometry0, material0);
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
