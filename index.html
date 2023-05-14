@@ -70,7 +70,18 @@
 					textureToShow = 0;
 				}
 			})
-//			plane0(geometry0, material0);
+			document.getElementById("picno").innerHTML = textureToShow;
+		});
+		
+		var backButton = document.querySelector("#backButton");
+		nextButton.addEventListener("click", function() {
+			loader.load(arr[textureToShow], function(tex) {
+				material0.map = tex;
+				textureToShow--;
+				if(textureToShow < 0) {
+					textureToShow = arr.length-1;
+				}
+			})
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
 		
