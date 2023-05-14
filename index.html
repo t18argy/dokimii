@@ -47,10 +47,10 @@
       		var plane0 = new THREE.Mesh(geometry0, material0);
       		anchor0.group.add(plane0);
 
-		var render = function () { 
-			requestAnimationFrame(render);
-			renderer.render(scene);
-		};
+//		var render = function () { 
+//			requestAnimationFrame(render);
+//			renderer.render(scene);
+//		};
 		
 //		const anchor0 = mindarThree.addAnchor(0);
 //		var texture0 = loadTexture(arr[textureToShow]);
@@ -72,7 +72,6 @@
 					textureToShow = 0;
 				}
 			})
-			material0.map = texture0;
 			plane0(geometry0, material0);
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
@@ -92,7 +91,7 @@
 			mindarThree.renderer.setAnimationLoop(null);
 		});
 		
-		render();
+//		render();
 	</script>
 	<style>
 		h1 {text-align: center;}
