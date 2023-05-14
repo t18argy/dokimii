@@ -74,6 +74,19 @@
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
 		
+		var backButton = document.querySelector("#backButton");
+		nextButton.addEventListener("click", function() {
+			loader.load(arr[textureToShow], function(texx) {
+				material0.map = texx;
+				textureToShow--;
+				if(textureToShow < 0) {
+					textureToShow = arr.length-1;
+				}
+			})
+//			plane0(geometry0, material0);
+			document.getElementById("picno").innerHTML = textureToShow;
+		});
+		
 		const start = async() => {
 			await mindarThree.start();
 			renderer.setAnimationLoop(() => {
