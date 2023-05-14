@@ -62,15 +62,15 @@
 //		});
 
 		const nextButton = document.querySelector("#nextButton");
-		document.getElementById("hahaha").innerHTML = "I have changed????????????????????????";
 		nextButton.addEventListener("click", function() {
 			loader.load(arr[textureToShow], function(tex) {
-				material0.map = tex;
+//				material0.map = tex;
 				textureToShow++;
 				if(textureToShow > arr.length-1) {
 					textureToShow = 0;
 				}
 			});
+		document.getElementById("picno").innerHTML = textureToShow;
 		});
 
 		const backButton = document.querySelector("#backButton");
@@ -140,6 +140,7 @@
 <body>
 	<h1 id="hahaha">Welc to the Campus Navigation System</h1> 
 	<p> Scan the building you want</p>
+	<p> Pic #</p> <span id="picno">-</span>
 
 	<div id="control">
 		<button id="startButton">Start</button>
