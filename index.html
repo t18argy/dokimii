@@ -45,22 +45,6 @@
       		var plane0 = new THREE.Mesh(geometry0, material0);
       		anchor0.group.add(plane0);
 
-//		var render = function () { 
-//			requestAnimationFrame(render);
-//			renderer.render(scene);
-//		};
-		
-//		const anchor0 = mindarThree.addAnchor(0);
-//		var texture0 = loadTexture(arr[textureToShow]);
-//		var material0 = new THREE.MeshBasicMaterial();
-//		var geometry0 = new THREE.PlaneGeometry(1, 1.7);
-//		anchor.group.add(plane0);
-//		
-//		loader.load(arr[textureToShow], function(tex) {
-//			material.map = tex;
-//			textureToShow++;
-//		});
-
 		var nextButton = document.querySelector("#nextButton");
 		nextButton.addEventListener("click", function() {
 			loader.load(arr[textureToShow], function(tex) {
@@ -70,7 +54,18 @@
 					textureToShow = 0;
 				}
 			})
-//			plane0(geometry0, material0);
+			document.getElementById("picno").innerHTML = textureToShow;
+		});
+
+		var backButton = document.querySelector("#backButton");
+		backButton.addEventListener("click", function() {
+			textureToShow--;
+			if(textureToShow < 0) {
+				textureToShow = arr.length - 1;
+			}
+			loader.load(arr[textureToShow], function(tex) {
+				material0.map = tex;
+			})
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
 		
@@ -89,7 +84,8 @@
 			mindarThree.renderer.setAnimationLoop(null);
 		});
 		
-//		render();
+	</script>
+	//		render();
 	</script>
 	<style>
 		h1 {text-align: center;}
