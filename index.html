@@ -63,14 +63,14 @@
 
 		const nextButton = document.querySelector("#nextButton");
 		nextButton.addEventListener("click", function() {
-			loader.load(arr[textureToShow], function(tex) {
+			textureToShow++;
+			if(textureToShow > arr.length-1) {
+				textureToShow = 0;
+			}
+//			loader.load(arr[textureToShow], function(tex) {
 //				material0.map = tex;
-				textureToShow++;
-				if(textureToShow > arr.length-1) {
-					textureToShow = 0;
-				}
-			});
-		document.getElementById("picno").innerHTML = textureToShow;
+//			});
+			document.getElementById("picno").innerHTML = textureToShow;
 		});
 
 		const backButton = document.querySelector("#backButton");
