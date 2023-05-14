@@ -70,7 +70,7 @@
 //			loader.load(arr[textureToShow], function(tex) {
 //				material0.map = tex;
 //			});
-			material0.map = arr[textureToShow];
+			material0.map = arr[textureToShow] as THREE.MeshBasicMaterial;
 			document.getElementById("picno").innerHTML = textureToShow;
 		});
 
